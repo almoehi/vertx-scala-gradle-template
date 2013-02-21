@@ -20,6 +20,7 @@ import org.vertx.java.core.Handler
 apply from: "gradle/maven.gradle"
 
 apply plugin: 'java'
+apply plugin: 'scala'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
@@ -54,6 +55,8 @@ dependencies {
   provided "io.vertx:vertx-platform:$vertxVersion"
   testCompile "junit:junit:$junitVersion"
   testCompile "io.vertx:testtools:$toolsVersion"
+  compile 'org.scala-lang:scala-library:2.10.0'
+  testCompile "org.scala-lang:scala-library:2.10.0"
 }
 
 // This sets up the classpath for
@@ -74,6 +77,14 @@ buildscript {
 sourceSets {
   main {
     compileClasspath = compileClasspath + configurations.provided
+    scala {
+        srcDirs = ['src/main/scala']
+    }
+  }
+  test {
+    scala {
+        srcDirs = ['src/test/scala']
+    }
   }
 }
 
