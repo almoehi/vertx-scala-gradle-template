@@ -1,4 +1,9 @@
-package com.mycompany.myproject.test.integration.java;/*
+package com.mycompany.myproject.test.unit;
+
+import com.mycompany.myproject.MyVerticle;
+import org.junit.Test;
+
+/*
  * Copyright 2013 Red Hat, Inc.
  *
  * Red Hat licenses this file to you under the Apache License, version 2.0
@@ -15,19 +20,12 @@ package com.mycompany.myproject.test.integration.java;/*
  *
  * @author <a href="http://tfox.org">Tim Fox</a>
  */
+public class ExampleUnitTest {
 
-import org.vertx.java.platform.Verticle;
-import org.vertx.testtools.VertxAssert;
+  @Test
+  public void testVerticle() {
+    MyVerticle vert = new MyVerticle();
 
-public class SomeVerticle extends Verticle {
-
-  public void start() {
-    VertxAssert.initialize(vertx);
-
-    // You can also assert from other verticles!!
-    VertxAssert.assertEquals("foo", "foo");
-
-    // And complete tests from other verticles
-    VertxAssert.testComplete();
+    // do something with verticle
   }
 }

@@ -1,18 +1,20 @@
 // Import the VertxAssert class - this has the same API as JUnit
-import org.vertx.testtools.VertxAssert
+
+import static org.vertx.testtools.VertxAssert.*
+
 // And import static the VertxTests script
-import static VertxTests.*
+import org.vertx.groovy.testtools.VertxTests;
 
 // The test methods must being with "test"
 
 def test_1() {
-  VertxAssert.assertEquals("foo", "foo")
-  VertxAssert.testComplete()
+  assertEquals("foo", "foo")
+  testComplete()
 }
 
 def test_2() {
-  VertxAssert.testComplete()
+  testComplete()
 }
 
 // Make sure you call initTests at the bottom of your script
-initTests(this)
+VertxTests.initTests(this)
